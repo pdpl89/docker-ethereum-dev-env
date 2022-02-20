@@ -1,0 +1,15 @@
+FROM alpine:3.13
+
+RUN apk add gcc g++ curl bash yarn npm git zip unzip boost make inotify-tools nodejs
+
+RUN curl https://cli-assets.heroku.com/install.sh | sh
+
+RUN adduser -D ethereumDev
+
+USER ethereumDev
+
+WORKDIR /home/ethereumDev
+
+RUN bash -c " echo The development environment setup is completed."
+
+EXPOSE 4000 3000 3035 9000 3001 8545

@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: web_container
+    restart: always
+    volumes:
+      - ./src:/home/ethereumDev:delegated
+    ports:
+      - "4000:4000"
+      - "3000:3000"
+      - "3035:3035"
+      - "9000:9000"
+      - "3001:3001"
+      - "8545:8545"
